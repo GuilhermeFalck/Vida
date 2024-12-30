@@ -1,0 +1,161 @@
+/* Fundo do emoji já existente */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #383838;
+  font-family: Arial, sans-serif;
+  position: relative;
+  width: 100%;
+  height: auto; /* Permite que a altura se ajuste ao conteúdo */
+}
+
+/* Container de Emojis */
+#emoji-container {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* Emojis */
+.emoji {
+  position: absolute;
+  font-size: 2rem;
+  animation: fall linear infinite;
+}
+
+/* Animação de queda */
+@keyframes fall {
+  0% {
+    transform: translateY(-100%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0.5;
+  }
+}
+
+/* Sobreposição Escura */
+.overlay {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto; /* Ajusta a altura automaticamente com base no conteúdo */
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  z-index: 2;
+  text-align: center;
+  overflow-y: visible; /* Garantir que o conteúdo não seja cortado */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Estilo do Carrossel */
+.carousel {
+  position: relative;
+  width: 70%;
+  max-width: 800px;
+  margin: 40px auto; /* Margem para espaçamento */
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-container {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-container img {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+/* Texto dentro da overlay */
+.overlay h1 {
+  font-size: 5vw;
+  margin: 20px 0;
+}
+
+.overlay p {
+  font-size: 3vw;
+  margin: 20px auto; /* Espaçamento entre o texto e os outros elementos */
+}
+
+/* Grade de Quadrados */
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 colunas iguais */
+  gap: 20px; /* Espaço entre os quadrados */
+  justify-content: center; /* Centraliza o grid */
+  margin: 10px 0; /* Espaçamento acima e abaixo da grade */
+  padding: 10px; /* Espaçamento interno */
+}
+
+.square {
+  width: 150px;
+  height: 100px;
+  background-color: #000000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 20px;
+  border-radius: 10px; /* Cantos arredondados */
+}
+
+/* Responsividade */
+@media (max-width: 1320px) {
+  .overlay h1 {
+    font-size: 2rem;
+    font-family: "Dancing Script", serif;
+    color: red;
+  }
+
+  .overlay p {
+    font-size: 1rem;
+    margin: 0 2rem;
+  }
+
+  .overlay h2 {
+    font-size: 1.2rem;
+    font-family: "Vesper Libre", serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+}
+
+@media (orientation: landscape) {
+  .emoji {
+    font-size: 1.5rem;
+  }
+}
